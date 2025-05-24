@@ -1,0 +1,8 @@
+# directories
+/llama.cpp
+/ollama
+/open-webui
+/tabby
+
+# other files
+*.txt

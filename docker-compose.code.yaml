@@ -1,0 +1,27 @@
+services:
+  tabby:
+    restart: always
+    image: registry.tabbyml.com/tabbyml/tabby
+
+    # Both chat and code model
+    command: serve --model StarCoder-1B --chat-model Qwen2-1.5B-Instruct --device cuda
+
+    # Only code model
+    # command: serve --model StarCoder-1B --device cuda
+
+    # Only chat model
+    # command: serve --chat-model Qwen2-1.5B-Instruct --device cuda
+
+    volumes:
+      - "./tabby:/data"
+    ports:
+      - 8080:8080
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      NVIDIA_VISIBLE_DEVICES: all
