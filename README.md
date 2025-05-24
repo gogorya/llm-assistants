@@ -1,6 +1,6 @@
 # LLM Assistants
 
-Simple Docker Compose files for a quick local (or VM) setup of LLMs with NVIDIA GPUs.
+Simple Docker Compose files for a quick local (or VM) setup of LLMs with NVIDIA GPU(s).
 
 ## Getting Started
 
@@ -23,13 +23,13 @@ Simple Docker Compose files for a quick local (or VM) setup of LLMs with NVIDIA 
 
 1.  Clone this repository:
 
-    ```sh
+    ```bash
     git clone git@github.com:gogorya/llm-assistants.git
     ```
 
 2.  Make local directories (optional):
 
-    ```sh
+    ```bash
     cd llm-assistants/
     mkdir -p llama.cpp/models/ ollama/ open-webui/ tabby/
     ```
@@ -38,7 +38,7 @@ Simple Docker Compose files for a quick local (or VM) setup of LLMs with NVIDIA 
 
     - Chat assistant (open-webui: [http://localhost:8080](http://localhost:8080)):
 
-      ```sh
+      ```bash
       # start
       docker compose -f docker-compose.chat.yaml up -d
       # stop
@@ -47,7 +47,7 @@ Simple Docker Compose files for a quick local (or VM) setup of LLMs with NVIDIA 
 
     - Code assistant (tabby: [http://localhost:8080](http://localhost:8080)):
 
-      ```sh
+      ```bash
       # start
       docker compose -f docker-compose.code.yaml up -d
       # stop
@@ -55,8 +55,15 @@ Simple Docker Compose files for a quick local (or VM) setup of LLMs with NVIDIA 
       ```
 
 4.  For llama.cpp setup:
+
     - Download models (from [Hugging Face](https://huggingface.co/models?sort=trending&search=gguf)) and store in `/llama.cpp/models/`.
     - Uncomment `llamacpp-server` service inside `docker-compose.chat.yaml` and add model in `LLAMA_ARG_MODEL` environment variable.
+
+5.  Check GPU(s) utilization:
+
+    ```bash
+    watch -n2 nvidia-smi
+    ```
 
 ## Notes
 
@@ -64,6 +71,7 @@ Simple Docker Compose files for a quick local (or VM) setup of LLMs with NVIDIA 
 - Check environment variables.
 - Recommended to run either ollama or llamacpp-server.
 - Refer to the mentioned documentations for configuration and setup.
+- When run initially, it may take up to 5-10 minutes. Please wait or check Docker logs.
 
 ## Acknowledgements
 
