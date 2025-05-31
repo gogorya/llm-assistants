@@ -4,7 +4,7 @@ services:
     image: ghcr.io/open-webui/open-webui:main
     environment:
       OLLAMA_BASE_URL: "http://127.0.0.1:11434"
-      # For llamacpp-server
+      # For llama-cpp
       OPENAI_API_BASE_URLS: "http://127.0.0.1:8000"
     volumes:
       - ./open-webui:/app/backend/data
@@ -26,7 +26,7 @@ services:
     environment:
       NVIDIA_VISIBLE_DEVICES: all
 
-  # llamacpp-server:
+  # llama-cpp:
   #   image: ghcr.io/ggml-org/llama.cpp:server-cuda
   #   ports:
   #     - 8000:8080

@@ -57,7 +57,7 @@ Simple Docker Compose files for a quick local (or VM) setup of LLMs with NVIDIA 
 4.  For llama.cpp setup:
 
     - Download models (from [Hugging Face](https://huggingface.co/models?sort=trending&search=gguf)) and store in `/llama.cpp/models/`.
-    - Uncomment `llamacpp-server` service inside `docker-compose.chat.yaml` and add model in `LLAMA_ARG_MODEL` environment variable.
+    - Uncomment `llama-cpp` service inside `docker-compose.chat.yaml` and add model in `LLAMA_ARG_MODEL` environment variable.
 
 5.  Check GPU(s) utilization:
 
@@ -69,7 +69,7 @@ Simple Docker Compose files for a quick local (or VM) setup of LLMs with NVIDIA 
 
 - The Docker Compose files are not supposed to run altogether.
 - Check environment variables.
-- Recommended to run either ollama or llamacpp-server.
+- Recommended to run either ollama or llama-cpp.
 - Refer to the mentioned documentations for configuration and setup.
 - When run initially, it may take up to 5-10 minutes. Please wait or check Docker logs.
 

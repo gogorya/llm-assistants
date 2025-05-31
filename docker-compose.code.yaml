@@ -13,7 +13,7 @@ services:
     # command: serve --chat-model Qwen2-1.5B-Instruct --device cuda
 
     volumes:
-      - "./tabby:/data"
+      - ./tabby:/data
     ports:
       - 8080:8080
     deploy:
@@ -25,3 +25,5 @@ services:
               capabilities: [gpu]
     environment:
       NVIDIA_VISIBLE_DEVICES: all
+      # For production
+      # TABBY_WEBSERVER_JWT_TOKEN_SECRET: UUID-secret
